@@ -5,6 +5,7 @@ const db_1 = require("../db");
 // Get all posts
 const findAll = (callback) => {
     const queryString = `SELECT * FROM posts`;
+    console.log(queryString);
     db_1.db.query(queryString, (err, result) => {
         if (err) {
             callback(err);
@@ -20,6 +21,7 @@ const findAll = (callback) => {
                 user_id: row.user_id,
                 dataadaugare: row.dataadaugare,
                 poza: row.poza,
+                cantitate: row.cantitate,
             };
             posts.push(post);
         });
@@ -30,7 +32,7 @@ exports.findAll = findAll;
 // Get all posts
 const findLast3 = (callback) => {
     const queryString = `SELECT p.id,p.titlu,p.continut,p.poza, p.user_id,
-  p.categorie_id, p.dataadaugare, c.nume 
+  p.categorie_id, p.dataadaugare, c.nume, p.cantitate 
   FROM posts p INNER JOIN categories c on p.categorie_id= c.id ORDER BY p.id DESC LIMIT 3`;
     db_1.db.query(queryString, (err, result) => {
         if (err) {
@@ -48,6 +50,7 @@ const findLast3 = (callback) => {
                 dataadaugare: row.dataadaugare,
                 poza: row.poza,
                 categorie_nume: row.nume,
+                cantitate: row.cantitate,
             };
             posts.push(post);
         });
@@ -91,6 +94,7 @@ const findOne = (postId, callback) => {
             dataadaugare: row.dataadaugare,
             poza: row.poza,
             categorie_nume: row.nume,
+            cantitate: row.cantitate,
         };
         callback(null, post);
     });
@@ -98,10 +102,10 @@ const findOne = (postId, callback) => {
 exports.findOne = findOne;
 // create post
 const addPost = (post, callback) => {
-    const queryString = "INSERT INTO posts (titlu, continut, categorie_id, user_id,poza) VALUES (?, ?, ?, ?, ?)";
+    const queryString = "INSERT INTO posts (titlu, continut, categorie_id, user_id, poza, cantitate) VALUES (?, ?, ?, ?, ?, ?)";
     console.log(post);
     try {
-        let sqldeb = db_1.db.query(queryString, [post.titlu, post.continut, post.categorie_id, post.user_id, post.poza], (err, result) => {
+        let sqldeb = db_1.db.query(queryString, [post.titlu, post.continut, post.categorie_id, post.user_id, post.poza, post.cantitate], (err, result) => {
             if (err) {
                 callback(err);
             }

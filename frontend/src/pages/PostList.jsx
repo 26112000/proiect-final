@@ -21,6 +21,7 @@ const PostList = () => {
     }
   };
 
+
   // Fetch posts on component mount
   useEffect(() => {
     fetchPosts();

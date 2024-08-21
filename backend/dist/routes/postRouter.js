@@ -55,9 +55,10 @@ postRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 postRouter.get("/last3", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     postModel.findLast3((err, posts) => {
         if (err) {
-            res.status(500).json({ errorMessage: err.message });
+            return res.status(500).json({ errorMessage: err.message });
         }
         res.status(200).json({ data: posts });
+        return;
     });
 }));
 postRouter.get("/categories", (req, res) => __awaiter(void 0, void 0, void 0, function* () {

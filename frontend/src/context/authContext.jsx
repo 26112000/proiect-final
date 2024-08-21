@@ -20,7 +20,7 @@ export const AuthContexProvider = ({ children }) => {
   };
 
   const logout = async (inputs) => {
-    alert("doriti sa va delogati?");
+    alert("Doriti sa va delogati?");
     const res = await axios.post(configData.SERVER_URL + "logout");
     setauthenticated(false);
     localStorage.setItem("authenticated", false);

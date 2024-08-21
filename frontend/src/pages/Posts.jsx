@@ -60,9 +60,8 @@ export default function Posts() {
       {posts.map((data, index) => 
       <div key={index} className="col-sm-6 col-md-3 col-lg-3  d-flex align-items-stretch">
         <div className="card mb-4">
-            <a href="#!"><img className="card-img-top" src={`http://localhost:3002/uploads/${ data.poza }`} alt="..." /></a>
+            <a href="#!" className="post-pos"><img className="card-img-post-page" src={`http://localhost:3002/uploads/${ data.poza }`} alt="..."/></a>
             <div className="card-body d-flex flex-column">
-                <div className="small text-muted">January 1, 2023</div>
                 <h2 className="card-title h4">{data.titlu} </h2>
                 {/* <p className="card-text" dangerouslySetInnerHTML={{ __html: data.continut.substring(0, 250)}} /> */}
                 <p className="card-text" >{data.continut? data.continut.substring(0, 100):''}</p>

@@ -56,9 +56,9 @@ const ContactPage = () => {
         {/* Coloana cu date de contact */}
         <Col md={6} className="mb-4">
           <h2>Contactează-ne</h2>
-          <p>Adresa: Strada Exemplu nr. 123, Oraș, Țară</p>
-          <p>Telefon: +40 123 456 789</p>
-          <p>Email: contact@example.com</p>
+          <p>Adresa: Strada numarul 2 nr.10, Bucuresti, Romania</p>
+          <p>Telefon: +40 0786766588</p>
+          <p>Email: contact@andreiusi.com</p>
           <p>Program: Luni - Vineri, 09:00 - 18:00</p>
         </Col>
 

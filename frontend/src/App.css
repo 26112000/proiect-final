@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.card-img-home {
+  height: 600px;
+  width: 400px;
+}
+
+.card-img-post {
+  height: 900px;
+  width: 850px;
+}
+
+.post-pos {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-img-post-page {
+  height: 250px;
+  width: 190px;
+  
+}

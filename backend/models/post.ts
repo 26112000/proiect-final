@@ -5,6 +5,7 @@ import { OkPacket, RowDataPacket } from "mysql2";
 // Get all posts
 export const findAll = (callback: Function) => {
   const queryString = `SELECT * FROM posts`;
+  console.log(queryString)
   db.query(queryString, (err, result) => {
     if (err) {
       callback(err);
@@ -20,6 +21,7 @@ export const findAll = (callback: Function) => {
         user_id: row.user_id,
         dataadaugare: row.dataadaugare,
         poza: row.poza,
+        cantitate: row.cantitate,
       };
       posts.push(post);
     });
@@ -30,7 +32,7 @@ export const findAll = (callback: Function) => {
 // Get all posts
 export const findLast3 = (callback: Function) => {
   const queryString = `SELECT p.id,p.titlu,p.continut,p.poza, p.user_id,
-  p.categorie_id, p.dataadaugare, c.nume 
+  p.categorie_id, p.dataadaugare, c.nume, c.cantitate 
   FROM posts p INNER JOIN categories c on p.categorie_id= c.id ORDER BY p.id DESC LIMIT 3`;
   db.query(queryString, (err, result) => {
     if (err) {
@@ -48,6 +50,7 @@ export const findLast3 = (callback: Function) => {
         dataadaugare: row.dataadaugare,
         poza: row.poza,
         categorie_nume: row.nume,
+        cantitate: row.cantitate,
       };
       posts.push(post);
     });
@@ -90,6 +93,7 @@ export const findOne = (postId: number, callback: Function) => {
       dataadaugare: row.dataadaugare,
       poza: row.poza,
       categorie_nume: row.nume,
+      cantitate: row.cantitate,
     };
     callback(null, post);
   });
@@ -98,13 +102,13 @@ export const findOne = (postId: number, callback: Function) => {
 // create post
 export const addPost = (post: Post, callback: Function) => {
   const queryString =
-    "INSERT INTO posts (titlu, continut, categorie_id, user_id,poza) VALUES (?, ?, ?, ?, ?)";
+    "INSERT INTO posts (titlu, continut, categorie_id, user_id, poza, cantitate) VALUES (?, ?, ?, ?, ?, ?)";
   console.log(post);
 
   try {
     let sqldeb = db.query(
       queryString,
-      [post.titlu, post.continut, post.categorie_id, post.user_id, post.poza],
+      [post.titlu, post.continut, post.categorie_id, post.user_id, post.poza, post.cantitate],
       (err, result) => {
         if (err) {
           callback(err);

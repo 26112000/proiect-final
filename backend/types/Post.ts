@@ -10,4 +10,5 @@ export interface BasicPost {
     user_id?: number;
     poza?: string;
     categorie_nume?: string;
+    cantitate?: number;
   }

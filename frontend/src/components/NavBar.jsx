@@ -8,7 +8,7 @@ export default function NavBar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <a className="navbar-brand" href="/">
-          React Blog RNEM
+          Andrei Usi
         </a>
         <button
           className="navbar-toggler"
@@ -38,7 +38,7 @@ export default function NavBar() {
                 activeclassname="active"
                 className="nav-link"
               >
-                Posts
+                Usi
               </NavLink>
             </li>
             <li className="nav-item">

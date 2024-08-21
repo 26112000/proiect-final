@@ -41,6 +41,7 @@ export default function Home() {
       .get(configData.SERVER_POST_URL +'last3')
       .then(({ data }) => {
         console.log(data['data']);
+        console.log(data)
         const updatedData = replaceHtmlTagsRecursive(data['data']);
         setPosts(updatedData);
       })
@@ -56,14 +57,17 @@ export default function Home() {
    <section class="bg-light py-3 shadow-sm">
    <div className="container">
     <div className="row">
-      <h1>The last posts</h1>
+      <h1>Noutati</h1>
 
       {posts.map((data, index) => 
       <div key={index} className="col-sm-6 col-md-4 col-lg-4  d-flex align-items-stretch">
         <div className="card mb-4">
-            <a href="#!"><img className="card-img-top" src={`http://localhost:3002/uploads/${ data.poza }`} alt="..." /></a>
+          
+            <a href="#!"><img className="card-img-home" src={`http://localhost:3002/uploads/${ data.poza }`} alt="..." /></a>
             <div className="card-body d-flex flex-column">
+                
                 <div className="small text-muted">Category: {data.categorie_nume}</div>
+                <div className="small text-muted">Cantitate: {data.cantitate}</div>
                 <h2 className="card-title h4">{data.titlu} </h2>
                 {/* <p className="card-text" dangerouslySetInnerHTML={{ __html: data.continut.substring(0, 250)}} /> */}
                 <p className="card-text" >{data.continut? data.continut.substring(0, 100):''}</p>
@@ -78,5 +82,7 @@ export default function Home() {
    </div>
    </section>
    </>
+   
   )
 }
+
