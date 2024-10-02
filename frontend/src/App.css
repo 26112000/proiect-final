@@ -59,3 +59,40 @@
   width: 190px;
   
 }
+.location-react{
+  width: 15px;
+  align-self: auto;
+}
+.phone-react{
+  width: 15px;
+}
+.email-react{ 
+  width: 15px;
+}
+.orar-react{ 
+  width: 15px;
+}
+.usa-react{ 
+  width: 40px;
+}
+.p-contact{
+  color: #856114;
+}
+.left{
+  text-align: left;
+  float: left;
+}
+.centre{
+  text-align: center;
+  
+}
+.right{
+  text-align: left;
+  float: right;
+}
+.retele{ 
+  width: 30px;
+}
+.p-footer{
+  color: white;
+}

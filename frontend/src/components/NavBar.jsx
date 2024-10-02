@@ -8,7 +8,7 @@ export default function NavBar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <a className="navbar-brand" href="/">
-          Andrei Usi
+         <img className="usa-react" src="https://cdn-icons-png.flaticon.com/128/11117/11117864.png" alt="" /> Andrei Usi
         </a>
         <button
           className="navbar-toggler"
@@ -28,7 +28,7 @@ export default function NavBar() {
                     </li> */}
             <li className="nav-item">
               <NavLink className="nav-link" activeclassname="active" to="/">
-                Home
+                Acasa
               </NavLink>
             </li>
             <li className="nav-item">
@@ -48,7 +48,7 @@ export default function NavBar() {
                 activeclassname="active"
                 className="nav-link"
               >
-                Contact Us
+                Contact
               </NavLink>
             </li>
             {!authenticated && (

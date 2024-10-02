@@ -32,7 +32,7 @@ exports.findAll = findAll;
 // Get all posts
 const findLast3 = (callback) => {
     const queryString = `SELECT p.id,p.titlu,p.continut,p.poza, p.user_id,
-  p.categorie_id, p.dataadaugare, c.nume, p.cantitate 
+  p.categorie_id, p.dataadaugare, c.nume, c.cantitate 
   FROM posts p INNER JOIN categories c on p.categorie_id= c.id ORDER BY p.id DESC LIMIT 3`;
     db_1.db.query(queryString, (err, result) => {
         if (err) {
@@ -80,10 +80,14 @@ exports.findAllCategories = findAllCategories;
 // Get one user
 const findOne = (postId, callback) => {
     const queryString = `SELECT * FROM posts AS p INNER JOIN categories AS c ON p.categorie_id = c.id WHERE p.id=?`;
+    console.log(queryString);
     db_1.db.query(queryString, postId, (err, result) => {
         if (err) {
             callback(err);
         }
+        const rows = result;
+        console.log(rows);
+        console.log(result);
         const row = result[0];
         const post = {
             id: row.id,

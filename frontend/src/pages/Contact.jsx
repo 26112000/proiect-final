@@ -11,8 +11,6 @@ const ContactPage = () => {
   let navigate = useNavigate();
   // Schema de validare pentru formular
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required("Nume este obligatoriu!"),
-    lastName: Yup.string().required("Prenume este obligatoriu!"),
     email: Yup.string()
       .email("Email invalid!")
       .required("Email este obligatoriu!"),
@@ -55,16 +53,16 @@ const ContactPage = () => {
       <Row>
         {/* Coloana cu date de contact */}
         <Col md={6} className="mb-4">
-          <h2>Contactează-ne</h2>
-          <p>Adresa: Strada numarul 2 nr.10, Bucuresti, Romania</p>
-          <p>Telefon: +40 0786766588</p>
-          <p>Email: contact@andreiusi.com</p>
-          <p>Program: Luni - Vineri, 09:00 - 18:00</p>
+          <h2 className="p-contact">Contactează-ne</h2>
+          <p><img className="location-react" src="https://cdn-icons-png.flaticon.com/512/3865/3865991.png" alt=""/> Adresa: Strada numarul 2 nr.10, Bucuresti, Romania</p>
+          <p><img className="phone-react"src="https://cdn-icons-png.flaticon.com/128/17486/17486479.png" alt="" /> Telefon: +40 0786766588</p>
+          <p><img className="email-react"src="https://cdn-icons-png.flaticon.com/128/646/646094.png" alt="" /> Email: contact@andreiusi.com</p>
+          <p><img className="orar-react" src="https://cdn-icons-png.flaticon.com/128/2088/2088617.png" alt="" /> Program: Luni - Vineri, 09:00 - 18:00</p>
         </Col>
 
         {/* Coloana cu formularul de contact */}
         <Col md={6}>
-          <h2>Trimite-ne un mesaj</h2>
+          <h2 className="p-contact">Trimite-ne un mesaj</h2>
           <Formik
             initialValues={formData}
             validationSchema={validationSchema}
@@ -79,7 +77,6 @@ const ContactPage = () => {
                     name="firstName"
                     type="text"
                     className="form-control"
-                    placeholder="Nume"
                     onChange={handleInputChange}
                   />
                   <ErrorMessage
@@ -95,7 +92,6 @@ const ContactPage = () => {
                     name="lastName"
                     type="text"
                     className="form-control"
-                    placeholder="Prenume"
                     onChange={handleInputChange}
                   />
                   <ErrorMessage
@@ -106,12 +102,11 @@ const ContactPage = () => {
                 </FormGroup>
 
                 <FormGroup>
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="email">Email*</label>
                   <Field
                     name="email"
                     type="email"
                     className="form-control"
-                    placeholder="Email"
                     onChange={handleInputChange}
                   />
                   <ErrorMessage

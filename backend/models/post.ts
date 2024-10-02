@@ -5,7 +5,6 @@ import { OkPacket, RowDataPacket } from "mysql2";
 // Get all posts
 export const findAll = (callback: Function) => {
   const queryString = `SELECT * FROM posts`;
-  console.log(queryString)
   db.query(queryString, (err, result) => {
     if (err) {
       callback(err);
@@ -82,7 +81,6 @@ export const findOne = (postId: number, callback: Function) => {
     if (err) {
       callback(err);
     }
-
     const row = (<RowDataPacket>result)[0];
     const post: Post = {
       id: row.id,

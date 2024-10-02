@@ -32,7 +32,8 @@ export default function SinglePost() {
             />
           </a>
           <div className="card-body">
-            <div className="small text-muted">Category: {post.categorie_nume} Cantitate: {post.cantitate}</div>
+            <div className="small text-muted">Category: {post.categorie_nume}
+              <br /> Cantitate: {post.cantitate}</div>
             <h2 className="card-title">{post.titlu}</h2>
           <p className="card-text" dangerouslySetInnerHTML={{ __html: post.continut}} />
             

@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import configData from "../config.json";
 
+
 const replaceHtmlTagsRecursive = (data) => {
   if (Array.isArray(data)) {
     return data.map((item) => replaceHtmlTagsRecursive(item));
@@ -48,6 +49,7 @@ export default function Posts() {
         console.log(error);
       });
   }, []);
+  
 
   
   return (

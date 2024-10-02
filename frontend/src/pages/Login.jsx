@@ -113,7 +113,8 @@ export default function Login() {
                   <FormGroup>
                     <div className="w-100 text-md-right">
                       <Link to="/myregister" className="nav-link login">
-                        Daca nu ai cont: Register
+                        Nu ai cont?
+                        Inregistreaza-te aici!
                       </Link>
                     </div>
                   </FormGroup>
